@@ -1,5 +1,3 @@
-(prelude-install-package )
-
 (setq user-full-name "Maxim Kremenev")
 (setq user-mail-address "ezo@kremenev.com")
 
@@ -23,3 +21,7 @@
       browse-url-generic-program "chromium")
 
 (setenv "RUBYOPT" "-Ku")
+
+;; Ext sets
+;; Disable insert -*- condig: utf-8 -*-
+(setq ruby-insert-encoding-magic-comment nil)
