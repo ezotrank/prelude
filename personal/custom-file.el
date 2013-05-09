@@ -20,6 +20,9 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
 
+;;;; Ruby personals
+(add-to-list 'auto-mode-alist '("\\.god\\'" . ruby-mode))
+
 (setenv "RUBYOPT" "-Ku")
 
 ;; Ext sets
