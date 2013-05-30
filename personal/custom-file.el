@@ -28,3 +28,23 @@
 ;; Ext sets
 ;; Disable insert -*- condig: utf-8 -*-
 (setq ruby-insert-encoding-magic-comment nil)
+
+(defun open-tmux ()
+  "Open the developer screen"
+  (interactive nil)
+  (save-window-excursion
+    (async-shell-command "urxvt -e zsh -c 'tmux -L emacs_$RANDOM'"))
+  )
+
+(defun open-rxvt ()
+  "Open urxvt terminal in current direcotry"
+  (interactive nil)
+  (save-window-excursion
+    (async-shell-command "urxvt &>/dev/null"))
+  )
+
+(prelude-install-packages)
+
+;;; Nginx
+(require 'nginx-mode)
+(add-to-list 'auto-mode-alist '("nginx.conf$" . nginx-mode))
