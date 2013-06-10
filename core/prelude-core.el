@@ -295,6 +295,8 @@ buffer is not visiting a file."
   "Find file as root if necessary."
   (unless (or (equal major-mode 'dired-mode)
               (and (buffer-file-name)
+                   (not (file-exists-p (file-name-directory (buffer-file-name)))))
+              (and (buffer-file-name)
                    (file-writable-p buffer-file-name)))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
@@ -413,6 +415,7 @@ Doesn't mess with special buffers."
     (message "Updating Prelude...")
     (cd prelude-dir)
     (shell-command "git pull")
+    (prelude-recompile-init)
     (message "Update finished. Restart Emacs to complete the process.")))
 
 (provide 'prelude-core)
