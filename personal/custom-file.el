@@ -35,6 +35,7 @@
   (save-window-excursion
     (async-shell-command "urxvt -e zsh -c 'tmux -L emacs_$RANDOM'"))
   )
+(global-set-key (kbd "C-c C-t") 'open-tmux)
 
 (defun open-rxvt ()
   "Open urxvt terminal in current direcotry"
